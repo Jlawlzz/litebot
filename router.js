@@ -2,7 +2,7 @@
 
 const convoEngine = require('./src/engine');
 const async = require('async');
-const config = require('./config.json');
+const config = require('config');
 const serviceRouter = require(`./services/${config.service}/router`);
 
 module.exports = function(rawEvent) {

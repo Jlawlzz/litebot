@@ -2,7 +2,7 @@
 
 const Promise = require("bluebird");
 const state = require("../state/engine");
-const config = require("../../config.json");
+const config = require("config");
 
 const scriptLib = [];
 

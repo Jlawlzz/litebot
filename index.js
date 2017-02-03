@@ -78,15 +78,15 @@ app.get('/webhook', function(req, res) {
  * Not doing account linking for 1.0.0
  */
 app.post('/webhook', function (req, res) {
-  var data = req.body;
+  let data = req.body;
 
   // Make sure this is a page subscription
   if (data.object == 'page') {
     // Iterate over each entry
     // There may be multiple if batched
     data.entry.forEach(function(pageEntry) {
-      var pageID = pageEntry.id;
-      var timeOfEvent = pageEntry.time;
+      let pageID = pageEntry.id;
+      let timeOfEvent = pageEntry.time;
 
       // Iterate over each messaging event
       pageEntry.messaging.forEach(function(messagingEvent) {
@@ -112,18 +112,16 @@ app.post('/webhook', function (req, res) {
  *
  */
 function verifyRequestSignature(req, res, buf) {
-  var signature = req.headers["x-hub-signature"];
+  let signature = req.headers["x-hub-signature"];
 
   if (!signature) {
-    // For testing, let's log an error. In production, you should throw an
-    // error.
     console.error("Couldn't validate the signature.");
   } else {
-    var elements = signature.split('=');
-    var method = elements[0];
-    var signatureHash = elements[1];
+    let elements = signature.split('=');
+    let method = elements[0];
+    let signatureHash = elements[1];
 
-    var expectedHash = crypto.createHmac('sha1', APP_SECRET)
+    let expectedHash = crypto.createHmac('sha1', APP_SECRET)
                         .update(buf)
                         .digest('hex');
 
@@ -133,8 +131,6 @@ function verifyRequestSignature(req, res, buf) {
   }
 }
 
-
-// spin spin sugar
 app.listen(app.get('port'), function() {
 	console.log('running on port', app.get('port'))
 })

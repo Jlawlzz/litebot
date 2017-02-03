@@ -1,8 +1,21 @@
 
 {
-    "appSecret": "2bb97591026e5b746000d31257ab7a4c",
-    "pageAccessToken": "EAAQCZBUUoASsBANqsL51MeRd5uKgXJgn1RFqBjli5l8CJPEbUhFyz27pE2A3mB5SAAhZBQHhuWXnHRxzbnpoWZAy64hqq0JjYZAZBglQFKKy4jreoNkxUk1pIWNKXKtIUZBuT2AxL1TFarZBNM8U16zczJ4FebpJzbswk5ZAIJ5YpwZDZD",
-    "validationToken": "this_is_a_verify_token",
-    "serverURL": "",
-    "googlePlacesApiKey": "AIzaSyBbixdJQVlTOQ4rHBifvQTOBw5FfJ_Tkhs"
+  "appSecret": "2bb97591026e5b746000d31257ab7a4c",
+  "pageAccessToken": "EAAQCZBUUoASsBANqsL51MeRd5uKgXJgn1RFqBjli5l8CJPEbUhFyz27pE2A3mB5SAAhZBQHhuWXnHRxzbnpoWZAy64hqq0JjYZAZBglQFKKy4jreoNkxUk1pIWNKXKtIUZBuT2AxL1TFarZBNM8U16zczJ4FebpJzbswk5ZAIJ5YpwZDZD",
+  "validationToken": "this_is_a_verify_token",
+  "serverURL": "",
+  "service": "facebook_messenger",
+  "flags": [
+    "unknown-input"
+  ],
+  "keywords": [
+    "retry",
+    "restart"
+  ],
+  "scripts": [
+    "varScript",
+    "locationScript",
+    "dateScript",
+    "timeScript"
+  ]
 }

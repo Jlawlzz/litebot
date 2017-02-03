@@ -2,7 +2,7 @@
 
 const store = require('../store');
 const content = require('../../content');
-const config = require('../../config.json');
+const config = require('config');
 const initialState = "STEP:1_GET_STARTED_PAYLOAD";
 const handleUnknownInput = require("./flags/unknown-input");
 
