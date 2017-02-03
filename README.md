@@ -21,7 +21,7 @@ Whats in ```~/config/default.json``` file:
 
 I currently use [ngrok](https://ngrok.com/) to test Litebot locally.
 
-Look in ```~/content/index.json``` for a sample conversation.  While the sample conversation adheres to a dialog tree, language tools like wit.ai and Watson can be integrated via custom scripts (found in ```src/scripts```).
+Look in ```~/content/index.json``` for a sample conversation.  While the sample conversation adheres to a dialog tree, tools like wit.ai and Watson can be integrated via custom scripts (found in ```~/src/scripts```).
 
 ##TODO:
   - Build out docs
