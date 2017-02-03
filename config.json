@@ -1,0 +1,16 @@
+{
+  "service": "facebook_messenger",
+  "flags": [
+    "unknown-input"
+  ],
+  "keywords": [
+    "retry",
+    "restart"
+  ],
+  "scripts": [
+    "varScript",
+    "locationScript",
+    "dateScript",
+    "timeScript"
+  ]
+}

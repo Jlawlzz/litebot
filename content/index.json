@@ -1,0 +1,147 @@
+{
+  "STEP:1_GET_STARTED_PAYLOAD": {
+    "nextMessage": "STEP:INTRO"
+  },
+
+  "STEP:INTRO": {
+    "type": "message",
+    "anchor": true,
+    "text": "Hi, I’m a sample bot! I'll contain the basic message types you can send!",
+    "waitForUser": false,
+    "nextMessage": "STEP:NAME_QUERY"
+  },
+
+  "STEP:NAME_QUERY": {
+    "type": "message",
+    "anchor": true,
+    "scripts": ["varScript"],
+    "responseKey": "USER_NAME",
+    "text": "What is your name?",
+    "nextMessage": "STEP:GREETING"
+  },
+
+  "STEP:GREETING": {
+    "type": "button",
+    "anchor": true,
+    "scripts": ["varScript"],
+    "text": "Hi ${'USER_NAME'}! How are you today?",
+    "options": [{
+        "title": "Good",
+        "data": "good"
+      },
+      {
+        "title": "Bad",
+        "data": "bad"
+      }
+    ],
+    "nextMessage": {
+      "good": "STEP:GOOD_DAY",
+      "bad": "STEP:BAD_DAY"
+    }
+  },
+
+  "STEP:BAD_DAY": {
+    "type": "message",
+    "text": "I'm sorry to hear that!",
+    "waitForUser": false,
+    "nextMessage": "STEP:ENTER_VALID_DATE"
+  },
+
+  "STEP:GOOD_DAY": {
+    "type": "message",
+    "text": "Glad to hear it!",
+    "waitForUser": false,
+    "nextMessage": "STEP:ENTER_VALID_DATE"
+  },
+
+  "STEP:ENTER_VALID_DATE": {
+    "type": "message",
+    "anchor": true,
+    "scripts": ["varScript", "dateScript"],
+    "responseKey": "DATE_OF_INCIDENT",
+    "text": "Enter a valid date for me ('MM/DD/YY')",
+    "responseType": "text",
+    "nextMessage": "STEP:ENTER_VALID_TIME"
+  },
+
+  "STEP:ENTER_VALID_TIME": {
+    "type": "message",
+    "anchor": true,
+    "scripts": ["varScript", "timeScript"],
+    "responseKey": "TIME_OF_INCIDENT",
+    "text": "What time is it? (12:15AM)",
+    "responseType": "text",
+    "nextMessage": "STEP:FB_LOCATION"
+  },
+
+  "STEP:FB_LOCATION": {
+    "type": "quickReply",
+    "anchor": true,
+    "text": "Tap “Send location” to show me where you are!",
+    "responseType": "text",
+    "responseKey": "ENCOUNTER_LOCATION",
+    "scripts": ["locationScript"],
+    "nextMessage": "STEP:FAVORITE_COLOR"
+  },
+
+  "STEP:FAVORITE_COLOR": {
+    "type": "quickReply",
+    "anchor": true,
+    "scripts": ["varScript"],
+    "responseKey": "FAVORITE_COLOR",
+    "text": "What is your favorite color?",
+    "options": [
+      {
+        "title": "Green",
+        "data": "green"
+      },
+      {
+        "title": "Blue",
+        "data": "blue"
+      },
+      {
+        "title": "Yellow",
+        "data": "yellow"
+      },
+      {
+        "title": "Red",
+        "data": "red"
+      },
+      {
+        "title": "Purple",
+        "data": "purple"
+      }
+    ],
+    "nextMessage": "STEP:FAVORITE_COLOR_CONFIRMATION"
+  },
+
+  "STEP:FAVORITE_COLOR_CONFIRMATION": {
+    "type": "message",
+    "scripts": ["varScript"],
+    "waitForUser": false,
+    "text": "${'FAVORITE_COLOR'}, that's mine too!",
+    "nextMessage": "STEP:GOODBYE"
+  },
+
+  "STEP:GOODBYE": {
+    "type": "button",
+    "anchor": true,
+    "scripts": ["varScript"],
+    "text": "Thanks for talking with me ${'USER_NAME'}.",
+    "options": [
+      {
+        "title": "Restart",
+        "data": "restart"
+      }
+    ],
+    "nextMessage": "STEP:INTRO"
+  },
+
+  "STEP:UNKNOWN_INPUT": {
+    "type": "message",
+    "text": "Sorry, I didnt quite understand that, try again?",
+    "waitForUser": false,
+    "response_type": "text",
+    "nextMessage": "STEP:LAST_STEP"
+  }
+}
