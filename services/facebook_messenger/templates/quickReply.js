@@ -1,9 +1,7 @@
-'use strict'
+"use strict";
 
-module.exports = function (recipientID, payload) {
-  console.log(payload.options)
+module.exports = function(recipientID, payload) {
     if (payload !== null) {
-
       return {
         "recipient": {
           "id": recipientID
@@ -12,16 +10,15 @@ module.exports = function (recipientID, payload) {
           "text": payload.text,
           "quick_replies": createQuickReplies(payload.options)
           }
-        }
+        };
       }
-    }
+    };
 
 function createQuickReplies(quickReplies) {
-  let quickReplyArray
+  let quickReplyArray;
 
   if (quickReplies[0].content_type === "location") {
     quickReplyArray = quickReplies;
-
   } else {
     quickReplyArray = [];
     quickReplies.forEach(function(quickReply) {

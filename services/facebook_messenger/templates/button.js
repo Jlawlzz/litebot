@@ -1,9 +1,7 @@
-'use strict'
+"use strict";
 
-module.exports = function (recipientID, payload) {
-
+module.exports = function(recipientID, payload) {
     if (payload !== null) {
-
       return {
         "recipient": {
           "id": recipientID
@@ -18,9 +16,9 @@ module.exports = function (recipientID, payload) {
             }
           }
         }
-      }
+      };
     }
-  }
+  };
 
 function createButtons(buttons) {
   let buttonArray = [];
@@ -36,12 +34,12 @@ function createButton(button) {
         "type": "postback",
         "title": button.title,
         "payload": button.data
-      }
+      };
   } else {
     return {
-        "type": "web_url",
-        "title": button.title,
-        "url": button.data
-      }
+      "type": "web_url",
+      "title": button.title,
+      "url": button.data
+    };
   }
 }

@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const Promise = require("bluebird");
 const state = require("./state/engine");
@@ -6,18 +6,17 @@ const messageThread = require("./messageThread");
 const scriptEngine = require("./scripts/engine");
 const store = require("./store");
 
-let currentState, outgoingMessage, output;
+let currentState;
 
 module.exports = {
 
   in(rawEvent, fbID) {
     return new Promise(function(resolve, reject) {
       let message = rawEvent.userContent;
-      //Grab state from previous turn
+      //  Grab state from previous turn
       store.setUser(fbID);
-      state.reRoute(message, fbID);
       currentState = state.get(fbID);
-        //If the currentState includes scripts, iterate through and execute them
+      //  If the currentState includes scripts, iterate through and execute them
       scriptEngine.digest(currentState, message, fbID)
       .then(function() {
         resolve(message);
@@ -27,15 +26,14 @@ module.exports = {
 
   out(message, fbID) {
     return new Promise(function(resolve, reject) {
-
       currentState = state.get(fbID);
 
       store.saveData(fbID);
       state.next(message, fbID);
-      message = 'VOID';
+      message = "VOID";
       currentState = state.get(fbID);
       const outgoingMessages = messageThread.set(currentState, message, fbID);
       resolve(outgoingMessages);
     });
   }
-}
+};

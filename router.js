@@ -1,14 +1,12 @@
-'use strict';
+"use strict";
 
-const convoEngine = require('./src/engine');
-const async = require('async');
-const config = require('config');
+const convoEngine = require("./src/engine");
+const async = require("async");
+const config = require("config");
 const serviceRouter = require(`./services/${config.service}/router`);
 
 module.exports = function(rawEvent) {
-
   if(rawEvent.message || rawEvent.postback) {
-
     let senderID = rawEvent.sender.id;
 
     async.waterfall([
@@ -29,14 +27,14 @@ module.exports = function(rawEvent) {
 
       function courierOut(digestedMessage, callback) {
         convoEngine.out(digestedMessage, senderID)
-        .then(function(newMessage){
+        .then(function(newMessage) {
           callback(null, newMessage);
         });
       }],
 
       function(err, newMessage) {
-        serviceRouter.send(newMessage, senderID)
+        serviceRouter.send(newMessage, senderID);
       }
     );
   }
-}
+};

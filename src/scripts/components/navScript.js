@@ -1,9 +1,9 @@
 "use strict";
 
-const store = require('../../store');
+const store = require("../../store");
 
 function review() {
-  let results = '';
+  let results = "";
   for (let keyVal in store.data) {
     results += `${keyVal}: ${store.data[keyVal]}\n`;
   }
@@ -12,7 +12,7 @@ function review() {
 
 module.exports = {
 
-  type(){
+  type() {
     return "dbScript";
   },
 
@@ -25,4 +25,4 @@ module.exports = {
     return currentFrame;
   }
 
-}
+};

@@ -1,31 +1,30 @@
 "use strict";
 
-const store = require('../../store');
-const date = require('datejs');
+const store = require("../../store");
 
 module.exports = {
 
-  type(){
+  type() {
     return "timeScript";
   },
 
-  digest(currentFrame, message, fbID){
-    return new Promise(function(resolve, reject){
-      const time = store.users[fbID]['data'][currentFrame["responseKey"]];
+  digest(currentFrame, message, fbID) {
+    return new Promise(function(resolve, reject) {
+      const time = store.users[fbID]["data"][currentFrame["responseKey"]];
 
-      if (!testTime(time)){
+      if (!testTime(time)) {
         store.addFlag(fbID, "unknown-input");
       }
-      store.users[fbID]['data'][currentFrame["responseKey"]] = time;
+      store.users[fbID]["data"][currentFrame["responseKey"]] = time;
 
       resolve();
-    })
+    });
   },
 
-  format(currentFrame){
-    return currentFrame
+  format(currentFrame) {
+    return currentFrame;
   }
-}
+};
 
 
 function testTime(time) {

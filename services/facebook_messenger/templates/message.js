@@ -1,9 +1,7 @@
-'use strict'
+"use strict";
 
-module.exports = function (recipientID, payload) {
-
+module.exports = function(recipientID, payload) {
     if (payload !== null) {
-
       return {
         recipient: {
           id: recipientID
@@ -13,6 +11,5 @@ module.exports = function (recipientID, payload) {
           metadata: "DEVELOPER_DEFINED_METADATA"
         }
       };
-
     }
-  }
+  };

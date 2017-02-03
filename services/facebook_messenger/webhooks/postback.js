@@ -1,9 +1,8 @@
-'use strict'
+"use strict";
 
 module.exports = class Postback {
 
   constructor(event) {
-
     this.senderID = event.sender.id;
     this.recipientID = event.recipient.id;
     this.timeOfMessage = event.timestamp;
@@ -15,4 +14,4 @@ module.exports = class Postback {
     this.userContent = this.postback.payload.toLowerCase();
   }
 
-}
+};

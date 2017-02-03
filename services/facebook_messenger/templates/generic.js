@@ -1,9 +1,7 @@
-'use strict';
+"use strict";
 
-module.exports = function (recipientID, payload) {
-
+module.exports = function(recipientID, payload) {
     if (payload !== null) {
-
       return {
         "recipient": {
           "id": recipientID
@@ -17,9 +15,9 @@ module.exports = function (recipientID, payload) {
             }
           }
         }
-      }
+      };
     }
-  }
+  };
 
 function createElements(elements) {
   let elementArray = [];
@@ -29,13 +27,12 @@ function createElements(elements) {
         "title": element.title,
         "buttons": createButtons(element.buttons)
       }
-    )
+    );
   });
   return elementArray;
 }
 
 function createButtons(buttons) {
-  console.log("BUTTONS", buttons)
   let buttonArray = [];
   buttons.forEach(function(button) {
     buttonArray.push(
@@ -44,7 +41,7 @@ function createButtons(buttons) {
         "title": button.text,
         "payload": button.payload
       }
-    )
+    );
   });
   return buttonArray;
 }

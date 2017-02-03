@@ -1,7 +1,6 @@
-'use strict';
+"use strict";
 
 const Promise = require("bluebird");
-const state = require("../state/engine");
 const config = require("config");
 
 const scriptLib = [];
@@ -10,7 +9,7 @@ config.scripts.forEach(function(script) {
   scriptLib.push(require(`./components/${script}`));
 });
 
-let currentState, outgoingMessage, output;
+let output;
 
 module.exports = {
 
@@ -18,10 +17,8 @@ module.exports = {
     return Promise.each(scriptLib, function(script) {
       if (currentState.scripts && currentState.scripts.indexOf(script.type()) !== -1) {
         return script.digest(currentState, message, fbID);
-
       } else {
         return Promise.resolve();
-
       }
     });
   },
@@ -35,10 +32,8 @@ module.exports = {
         }
       });
       return output;
-
     } else {
       return currentState;
-
     }
   }
-}
+};
