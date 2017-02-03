@@ -4,7 +4,7 @@
 
 ##What:
 
-- Litebot is a chatbot framework that currently supports the Facebook Messenger platform. (keep an eye out for expanded platform support in the near future!)
+- Litebot is a Node.js/Express chatbot framework that currently supports the Facebook Messenger platform. (keep an eye out for expanded platform support in the near future!)
 - Litebot favors rapid development in the beginning of the dev cycle, deeper features can be built out via modular scripts as needs arise ([Raheem.ia](Raheem.ai) is built on top of the Litebot framework).
 
 ##Setup:
